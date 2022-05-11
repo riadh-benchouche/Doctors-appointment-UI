@@ -13,7 +13,7 @@
             />
           </span>
           <h2 class="brand-text mb-0">
-            {{ appName }}
+            Let's Find You a doctor
           </h2>
         </b-link>
       </li>
