@@ -100,8 +100,7 @@ export default {
       required: true,
     },
   },
-  setup(props) {
-    console.log(props.doctorsData)
+  setup() {
     return {
       avatarText,
     }

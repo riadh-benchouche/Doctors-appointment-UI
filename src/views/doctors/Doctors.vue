@@ -1,15 +1,61 @@
 <template>
-  <b-row>
-    <doctor-compact-card :doctors-data="data"></doctor-compact-card>
-  </b-row>
+  <section>
+    <b-container>
+      <b-row class="mb-2 d-flex justify-content-between">
+        <b-col
+          md="8"
+        >
+          <div class="demo-vertical-spacing ">
+            <b-input-group class="input-group-merge">
+              <b-input-group-prepend is-text>
+                <feather-icon icon="SearchIcon" />
+              </b-input-group-prepend>
+              <b-form-input placeholder="Search" />
+            </b-input-group>
+          </div>
+        </b-col>
+        <b-col
+          md="4"
+        >
+          <v-select
+            :clearable="false"
+            :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
+            :options="location"
+            :reduce="val => val.id"
+            label="label"
+            placeholder="Location"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-row>
+      <doctor-compact-card :doctors-data="data"></doctor-compact-card>
+    </b-row>
+  </section>
 </template>
 
 <script>
+import {
+  BRow,
+  BContainer,
+  BCol,
+  BFormInput,
+  BInputGroup,
+  BInputGroupPrepend,
+} from 'bootstrap-vue'
 import DoctorCompactCard from '@/views/doctors/doctorCompactCard.vue'
+import vSelect from 'vue-select'
 
 export default {
   components: {
     DoctorCompactCard,
+    vSelect,
+    BRow,
+    BContainer,
+    BCol,
+    BFormInput,
+    BInputGroup,
+    BInputGroupPrepend,
   },
   data() {
     return {
@@ -81,6 +127,20 @@ export default {
           avatar: require('@/assets/images/avatars/10.png'),
         },
       ],
+      location: [
+        {
+          id: 1,
+          label: 'Alger',
+        },
+        {
+          id: 2,
+          label: 'Albania',
+        },
+        {
+          id: 3,
+          label: 'Russia',
+        },
+      ],
     }
   },
 }
@@ -93,7 +153,7 @@ export default {
 
 .v-select {
   &.item-selector-title,
-  &.payment-selector {
+  & {
     background-color: #fff;
 
     .dark-layout & {
