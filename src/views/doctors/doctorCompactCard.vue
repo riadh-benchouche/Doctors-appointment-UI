@@ -3,7 +3,9 @@
     <b-col
       v-for="(doctor) in doctorsData"
       :key="doctor.id"
-      cols="4"
+      xl="4"
+      md="6"
+      sm="12"
     >
       <b-card>
         <div class="d-flex justify-content-start">
