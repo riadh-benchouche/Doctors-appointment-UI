@@ -1,7 +1,7 @@
 export default [
   {
-    title: 'Home',
+    title: 'Doctors',
     route: 'home',
-    icon: 'HomeIcon',
+    icon: 'ActivityIcon',
   },
 ]
