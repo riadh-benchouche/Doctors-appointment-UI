@@ -22,31 +22,54 @@
               </h4>
               <table class="mt-2 mt-xl-0 w-100">
                 <tr>
-                  <th class="pb-50">
-                    <span class="font-weight-bold">Spécialité </span>
+                  <th>
+                    <span class="font-weight-bold">Spécialité: {{ doctor.specialite }} </span>
                   </th>
-                  <td class="pb-50">
-                    {{ doctor.specialite }}
-                  </td>
                 </tr>
                 <tr>
                   <th class="pb-50">
-                    <span class="font-weight-bold">Hopital</span>
+                    <span class="pb-50 text-capitalize font-weight-lighter">{{ doctor.company }}</span>
                   </th>
-                  <td class="pb-50 text-capitalize">
-                    {{ doctor.company }}
-                  </td>
                 </tr>
                 <tr>
-                  <th class="pb-50">
+                  <th>
                     <feather-icon
                       icon="MapPinIcon"
-                      class="mr-50 "
+                      class="mr-75"
                     />
-                    <span class="font-weight-bold">Country</span>
+                    <span class=" pb-25 font-weight-lighter">{{ doctor.country }}</span>
                   </th>
-                  <td class="pb-50 ml-1">
-                    {{ doctor.country }}
+                  <td class="float-right">
+                    <div>
+                      <feather-icon
+                        icon="StarIcon"
+                        stroke="#F59E0B"
+                        fill="#F59E0B"
+                        class="mr-25"
+                      />
+                      <feather-icon
+                        icon="StarIcon"
+                        stroke="#F59E0B"
+                        fill="#F59E0B"
+                        class="mr-25"
+                      />
+                      <feather-icon
+                        icon="StarIcon"
+                        stroke="#F59E0B"
+                        fill="#F59E0B"
+                        class="mr-25"
+                      />
+                      <feather-icon
+                        icon="StarIcon"
+                        stroke="#F59E0B"
+                        fill="#F59E0B"
+                        class="mr-25"
+                      />
+                      <feather-icon
+                        icon="StarIcon"
+                        class="mr-25"
+                      />
+                    </div>
                   </td>
                 </tr>
               </table>
