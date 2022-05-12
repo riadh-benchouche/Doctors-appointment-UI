@@ -16,6 +16,11 @@ const router = new VueRouter({
       component: () => import('@/views/doctors/Doctors.vue'),
     },
     {
+      path: '/doctors/:id',
+      name: 'doctor-detail',
+      component: () => import('@/views/doctors/DoctorDetail.vue'),
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/Login.vue'),
