@@ -59,9 +59,11 @@ export default {
     return {
       profileData: {
         header: {
-          avatar: require('@/assets/images/portrait/small/avatar-s-2.jpg'),
-          username: 'Kitty Allanson',
-          designation: 'UI/UX Designer',
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+          username: 'Dr. Amine Mohamed',
+          specialite: 'Spécialité: Chirurgie dentaire',
+          company: 'CHU Mustapha',
+          location: 'Alger',
           coverImg: require('@/assets/images/profile/user-uploads/timeline.jpg'),
         },
         userAbout: {

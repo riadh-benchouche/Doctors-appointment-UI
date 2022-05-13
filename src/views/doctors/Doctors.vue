@@ -18,7 +18,6 @@
           md="4"
         >
           <v-select
-            :clearable="false"
             :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
             :options="location"
             :reduce="val => val.id"
@@ -69,7 +68,7 @@ export default {
           contact: '(472) 607-9137',
           email: 'hredmore1@imgur.com',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/10.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
         {
           id: 2,
@@ -80,7 +79,7 @@ export default {
           contact: '(321) 264-4599',
           email: 'msicely2@who.int',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/1.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
         {
           id: 3,
@@ -91,7 +90,7 @@ export default {
           contact: '(923) 690-6806',
           email: 'crisby3@wordpress.com',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/9.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
         {
           id: 4,
@@ -102,7 +101,7 @@ export default {
           contact: '(669) 914-1078',
           email: 'mhurran4@yahoo.co.jp',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/10.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
         {
           id: 5,
@@ -113,7 +112,7 @@ export default {
           contact: '(923) 690-6806',
           email: 'crisby3@wordpress.com',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/9.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
         {
           id: 6,
@@ -124,7 +123,7 @@ export default {
           contact: '(669) 914-1078',
           email: 'mhurran4@yahoo.co.jp',
           // eslint-disable-next-line global-require
-          avatar: require('@/assets/images/avatars/10.png'),
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
         },
       ],
       location: [
@@ -147,10 +146,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.per-page-selector {
-  width: 90px;
-}
-
 .v-select {
   &.item-selector-title,
   & {

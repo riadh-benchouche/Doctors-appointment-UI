@@ -46,33 +46,10 @@
                   </th>
                   <td class="float-right">
                     <div>
-                      <feather-icon
-                        icon="StarIcon"
-                        stroke="#F59E0B"
-                        fill="#F59E0B"
-                        class="mr-25"
-                      />
-                      <feather-icon
-                        icon="StarIcon"
-                        stroke="#F59E0B"
-                        fill="#F59E0B"
-                        class="mr-25"
-                      />
-                      <feather-icon
-                        icon="StarIcon"
-                        stroke="#F59E0B"
-                        fill="#F59E0B"
-                        class="mr-25"
-                      />
-                      <feather-icon
-                        icon="StarIcon"
-                        stroke="#F59E0B"
-                        fill="#F59E0B"
-                        class="mr-25"
-                      />
-                      <feather-icon
-                        icon="StarIcon"
-                        class="mr-25"
+                      <star-rating
+                        star-size="20"
+                        :show-rating="false"
+                        rounded-corners="true"
                       />
                     </div>
                   </td>
@@ -91,6 +68,7 @@ import {
   BCard, BAvatar, BRow, BCol,
 } from 'bootstrap-vue'
 import { avatarText } from '@core/utils/filter'
+import StarRating from 'vue-star-rating'
 
 export default {
   components: {
@@ -98,6 +76,7 @@ export default {
     BRow,
     BCol,
     BAvatar,
+    StarRating,
   },
   props: {
     doctorsData: {
