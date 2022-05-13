@@ -14,10 +14,15 @@
             :text="avatarText(doctor.fullName)"
             size="104px"
             rounded
+            :to="{name:'doctor-detail', params: {id : doctor.id}}"
           />
           <div class="d-flex flex-column ml-1">
             <div class="mb-1">
-              <h4 class="mb-0 text-primary">
+              <h4
+                class="mb-0 text-primary"
+                role="button"
+                @click="$router.push({name:'doctor-detail', params: {id : doctor.id}})"
+              >
                 {{ doctor.fullName }}
               </h4>
               <table class="mt-2 mt-xl-0 w-100">
