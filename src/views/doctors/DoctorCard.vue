@@ -148,11 +148,11 @@ export default {
         },
       },
       bars: [
-        { variant: '5', value: 75 },
-        { variant: '4', value: 75 },
-        { variant: '3', value: 75 },
-        { variant: '2', value: 75 },
-        { variant: '1', value: 75 },
+        { variant: '5', value: 89 },
+        { variant: '4', value: 25 },
+        { variant: '3', value: 50 },
+        { variant: '2', value: 63 },
+        { variant: '1', value: 5 },
       ],
     }
   },
