@@ -3,30 +3,43 @@
     <b-container>
       <b-row class="mb-2 d-flex justify-content-between">
         <b-col
-          md="8"
+            md="8"
         >
           <div class="demo-vertical-spacing ">
             <b-input-group class="input-group-merge">
               <b-input-group-prepend is-text>
-                <feather-icon icon="SearchIcon" />
+                <feather-icon icon="SearchIcon"/>
               </b-input-group-prepend>
-              <b-form-input placeholder="Search" />
+              <b-form-input placeholder="Search"/>
             </b-input-group>
           </div>
         </b-col>
         <b-col
-          md="4"
+            md="4"
         >
           <v-select
-            :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
-            :options="location"
-            :reduce="val => val.id"
-            label="label"
-            placeholder="Location"
+              :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
+              :options="location"
+              :reduce="val => val.id"
+              label="label"
+              placeholder="Location"
           />
         </b-col>
       </b-row>
     </b-container>
+    <b-row class="pb-md-1 px-md-3">
+      <doctor-card :doctors-data="data"></doctor-card>
+    </b-row>
+    <b-row class="d-flex justify-content-between pb-md-1 px-md-3">
+      <h1 class="text-primary">Recommended</h1>
+      <b-button
+          v-ripple.400="'rgba(255, 255, 255, 0.15)'"
+          variant="primary"
+          class="btn-icon"
+      >
+        <feather-icon icon="FilterIcon" size="20"/>
+      </b-button>
+    </b-row>
     <b-row>
       <doctor-compact-card :doctors-data="data"></doctor-compact-card>
     </b-row>
@@ -41,13 +54,17 @@ import {
   BFormInput,
   BInputGroup,
   BInputGroupPrepend,
+  BButton,
 } from 'bootstrap-vue'
 import DoctorCompactCard from '@/views/doctors/doctorCompactCard.vue'
+import DoctorCard from '@/views/doctors/DoctorCard.vue'
 import vSelect from 'vue-select'
+import Ripple from 'vue-ripple-directive'
 
 export default {
   components: {
     DoctorCompactCard,
+    DoctorCard,
     vSelect,
     BRow,
     BContainer,
@@ -55,6 +72,10 @@ export default {
     BFormInput,
     BInputGroup,
     BInputGroupPrepend,
+    BButton,
+  },
+  directives: {
+    Ripple,
   },
   data() {
     return {
