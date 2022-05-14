@@ -1,21 +1,21 @@
 <template>
   <b-container>
     <b-card
-      class="profile-header mb-2"
-      :img-src="headerData.coverImg"
-      img-top
-      alt="cover photo"
-      body-class="p-0"
+        class="profile-header mb-2"
+        :img-src="headerData.coverImg"
+        img-top
+        alt="cover photo"
+        body-class="p-0"
     >
       <!-- profile picture -->
       <div class="position-relative">
         <div class="profile-img-container d-flex align-items-center">
           <div class="profile-img">
             <b-img
-              :src="headerData.avatar"
-              rounded
-              fluid
-              alt="profile photo"
+                :src="headerData.avatar"
+                rounded
+                fluid
+                alt="profile photo"
             />
           </div>
           <!-- profile title -->
@@ -29,8 +29,8 @@
             <p class="text-white">
               {{ headerData.company }}
               <feather-icon
-                icon="MapPinIcon"
-                class="ml-75 "
+                  icon="MapPinIcon"
+                  class="ml-75 "
               />
               {{ headerData.location }}
             </p>
@@ -43,39 +43,41 @@
       <!-- profile navbar -->
       <div class="profile-header-nav">
         <b-navbar
-          toggleable="md"
-          type="light"
+            toggleable="md"
+            type="light"
         >
           <!-- toggle button -->
           <b-navbar-toggle
-            class="ml-auto"
-            target="nav-text-collapse"
+              class="ml-auto"
+              target="nav-text-collapse"
           >
             <feather-icon
-              icon="AlignJustifyIcon"
-              size="21"
+                icon="AlignJustifyIcon"
+                size="21"
             />
           </b-navbar-toggle>
           <!--/ toggle button -->
 
           <!-- collapse -->
           <b-collapse
-            id="nav-text-collapse"
-            is-nav
+              id="nav-text-collapse"
+              is-nav
           >
             <b-tabs
-              pills
-              class="profile-tabs mt-1 mt-md-0"
-              nav-class="mb-0"
+                pills
+                class="profile-tabs mt-1 mt-md-0"
+                nav-class="mb-0"
             >
               <template #tabs-end>
                 <b-button
-                  variant="primary"
-                  class="ml-auto"
+                    v-ripple.400="'rgba(113, 102, 240, 0.15)'"
+                    v-b-modal.modal-1
+                    variant="primary"
+                    class="ml-auto"
                 >
                   <feather-icon
-                    icon="EditIcon"
-                    class="d-block d-md-none"
+                      icon="EditIcon"
+                      class="d-block d-md-none"
                   />
                   <span class="font-weight-bold d-none d-md-block">Prendre rendez-vous</span>
                 </b-button>
@@ -86,6 +88,24 @@
           <!--/ collapse -->
         </b-navbar>
       </div>
+      <b-modal
+          id="modal-1"
+          title="Take an appointment with"
+          ok-only
+          ok-title="Confirm"
+      >
+        <doctor-compact-card-modal :doctors-data="data"></doctor-compact-card-modal>
+        <b-card-text>
+          <b-form-group>
+            <h5>Date & TIme</h5>
+            <flat-pickr
+                v-model="dateNtim"
+                class="form-control"
+                :config="{ enableTime: true,dateFormat: 'Y-m-d H:i'}"
+            />
+          </b-form-group>
+        </b-card-text>
+      </b-modal>
       <!--/ profile navbar -->
     </b-card>
   </b-container>
@@ -93,22 +113,30 @@
 
 <script>
 import {
-  BCard, BImg, BNavbar, BNavbarToggle, BCollapse, BTabs, BButton, BContainer,
+  BCard, BImg, BNavbar, BNavbarToggle, BCollapse, BTabs, BButton, BContainer, BModal, VBModal, BCardText, BFormGroup,
 } from 'bootstrap-vue'
 import Ripple from 'vue-ripple-directive'
+import flatPickr from 'vue-flatpickr-component'
+import DoctorCompactCardModal from '@/views/doctors/components/doctorCompactCardModal.vue'
 
 export default {
   components: {
     BCard,
     BContainer,
     BTabs,
+    BFormGroup,
+    flatPickr,
     BButton,
     BNavbar,
     BNavbarToggle,
     BCollapse,
     BImg,
+    BModal,
+    BCardText,
+    DoctorCompactCardModal,
   },
   directives: {
+    'b-modal': VBModal,
     Ripple,
   },
   props: {
@@ -118,5 +146,25 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      dateNtim: null,
+      data: {
+        id: 1,
+        fullName: 'Dr. Amine Mohamed',
+        company: 'CHU Mustapha',
+        specialite: 'Chirurgie dentaire',
+        country: 'Alger',
+        contact: '(472) 607-9137',
+        email: 'hredmore1@imgur.com',
+        // eslint-disable-next-line global-require
+        avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+      },
+    }
+  },
+
 }
 </script>
+<style lang="scss">
+@import '~@core/scss/vue/libs/vue-flatpicker.scss';
+</style>
