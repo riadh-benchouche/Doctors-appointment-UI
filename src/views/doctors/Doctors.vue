@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="mb-2 d-flex justify-content-between">
         <b-col
-            md="8"
+            cols="8"
         >
           <div class="demo-vertical-spacing ">
             <b-input-group class="input-group-merge">
@@ -15,8 +15,7 @@
           </div>
         </b-col>
         <b-col
-            md="4"
-        >
+            cols="4">
           <v-select
               :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
               :options="location"

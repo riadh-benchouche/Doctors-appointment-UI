@@ -38,20 +38,12 @@
               v-for="bar in bars"
               :key="bar.id"
           >
-            <b-col
-                cols="2"
-            >
-              {{ bar.id }}
-            </b-col>
-            <b-col
-                cols="10"
-            >
+            <span class="mr-50 mb-25">{{ bar.id }}</span>
               <b-progress
                   :key="bar.id"
                   :value="bar.value"
-                  class="mb-25"
+                  class="mb-25 w-100"
               />
-            </b-col>
           </b-row>
           </b-container>
         </div>
@@ -65,7 +57,6 @@
 import {
   BRow,
   BContainer,
-  BCol,
   BCardText,
   BProgress,
   BCard,
@@ -76,7 +67,6 @@ export default {
   components: {
     BContainer,
     BRow,
-    BCol,
     BCardText,
     BProgress,
     BCard,
