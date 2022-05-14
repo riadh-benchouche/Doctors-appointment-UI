@@ -1,48 +1,43 @@
 <template>
   <div id="user-profile">
     <profile-header :header-data="profileData.header" />
-    <!-- profile info  -->
-    <section id="profile-info">
+    <section id="profile-info" class="px-md-3">
+      <b-card>
       <b-row>
-        <!-- about suggested page and twitter feed -->
         <b-col
           lg="3"
           cols="12"
           order="2"
           order-lg="1"
         >
-          <b-card><h1>test</h1></b-card>
+          <similar-doctor-compact-card :doctors-data="data"></similar-doctor-compact-card>
         </b-col>
-        <!--/ about suggested page and twitter feed -->
-
-        <!-- post -->
         <b-col
           lg="6"
           cols="12"
           order="1"
           order-lg="2"
         >
-          <b-card><h1>test</h1></b-card>
+          <profile-about :about-data="profileData.userAbout" />
         </b-col>
-        <!-- post -->
-
-        <!-- latest photos suggestion and polls -->
         <b-col
           lg="3"
           cols="12"
           order="3"
         >
-          <b-card><h1>test</h1></b-card>
+          <profile-feed-back :twitter-feed="profileData.twitterFeeds" />
         </b-col>
       </b-row>
+      </b-card>
     </section>
-    <!--/ profile info  -->
   </div>
 </template>
 
 <script>
 import { BRow, BCol, BCard } from 'bootstrap-vue'
-
+import SimilarDoctorCompactCard from '@/views/doctors/components/SimilarDoctorCompactCard.vue'
+import ProfileFeedBack from '@/views/doctors/components/ProfileFeedBack.vue'
+import ProfileAbout from '@/views/doctors/components/ProfileAbout.vue'
 import ProfileHeader from './components/ProfileHeader.vue'
 
 /* eslint-disable global-require */
@@ -51,12 +46,63 @@ export default {
     BRow,
     BCol,
     BCard,
-
     ProfileHeader,
-
+    SimilarDoctorCompactCard,
+    ProfileFeedBack,
+    ProfileAbout,
   },
   data() {
     return {
+      data: [
+        {
+          id: 1,
+          fullName: 'Halsey Redmore',
+          company: 'CHU Mustapha',
+          specialite: 'Chirurgie dentaire',
+          country: 'Albania',
+          contact: '(472) 607-9137',
+          rating: '2.8',
+          email: 'hredmore1@imgur.com',
+          // eslint-disable-next-line global-require
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+        },
+        {
+          id: 2,
+          fullName: 'Marjory Sicely',
+          company: 'Oozz PVT LTD',
+          specialite: 'Chirurgie dentaire',
+          country: 'Russia',
+          contact: '(321) 264-4599',
+          rating: '3',
+          email: 'msicely2@who.int',
+          // eslint-disable-next-line global-require
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+        },
+        {
+          id: 3,
+          fullName: 'Cyrill Risby',
+          company: 'Oozz PVT LTD',
+          specialite: 'Chirurgie dentaire',
+          country: 'China',
+          contact: '(923) 690-6806',
+          rating: '5',
+          email: 'crisby3@wordpress.com',
+          // eslint-disable-next-line global-require
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+        },
+        {
+          id: 4,
+          fullName: 'Cyrill Risby',
+          company: 'Oozz PVT LTD',
+          specialite: 'Chirurgie dentaire',
+          country: 'China',
+          contact: '(923) 690-6806',
+          rating: '4.6',
+          email: 'crisby3@wordpress.com',
+          // eslint-disable-next-line global-require
+          avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
+        },
+      ],
       profileData: {
         header: {
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -67,128 +113,35 @@ export default {
           coverImg: require('@/assets/images/profile/user-uploads/timeline.jpg'),
         },
         userAbout: {
-          about: 'Tart I love sugar plum I love oat cake. Sweet ⭐️ roll caramels I love jujubes. Topping cake wafer.',
-          joined: 'November 15, 2015',
-          lives: 'New York, USA',
+          about: 'Maitre assistant hospitalo-universitaire en Chirurgie dentaire.',
+          Location: '28 Rue Didouche Mourad, Alger Ctre 16000',
           email: 'bucketful@fiendhead.org',
-          website: 'www.pixinvent.com',
+          contact: '(923) 690-6806',
         },
-        suggestedPages: [
-          {
-            avatar: require('@/assets/images/avatars/12-small.png'),
-            username: 'Peter Reed',
-            subtitle: 'Company',
-            favorite: false,
-          },
-          {
-            avatar: require('@/assets/images/avatars/1-small.png'),
-            username: 'Harriett Adkins',
-            subtitle: 'Company',
-            favorite: false,
-          },
-          {
-            avatar: require('@/assets/images/avatars/10-small.png'),
-            username: 'Juan Weaver',
-            subtitle: 'Company',
-            favorite: false,
-          },
-          {
-            avatar: require('@/assets/images/avatars/3-small.png'),
-            username: 'Claudia Chandler',
-            subtitle: 'Company',
-            favorite: false,
-          },
-          {
-            avatar: require('@/assets/images/avatars/5-small.png'),
-            username: 'Earl Briggs',
-            subtitle: 'Company',
-            favorite: true,
-          },
-          {
-            avatar: require('@/assets/images/avatars/6-small.png'),
-            username: 'Jonathan Lyons',
-            subtitle: 'Beauty Store',
-            favorite: false,
-          },
-        ],
         twitterFeeds: [
           {
             imgUrl: require('@/assets/images/avatars/5-small.png'),
             title: 'Gertrude Stevens',
-            id: 'tiana59 ',
-            tags: '#design #fasion',
-            desc: 'I love cookie chupa chups sweet tart apple pie ⭐️ chocolate bar.',
-            favorite: false,
+            id: '1',
+            desc: 'Le Dr. Mohamed Amine est le plus expérimentés et le plus doux des professionnels de santé. Il s\'agit de l\'ancienne école avec une connaissance parfaite de son métier. À recommander pour les mamans cherchant à voir leurs enfants en excellente santé.',
           },
           {
             imgUrl: require('@/assets/images/avatars/12-small.png'),
             title: 'Lura Jones',
-            id: 'tiana59 ',
-            tags: '#vuejs #code #coffeez',
-            desc: 'Halvah I love powder jelly I love cheesecake cotton candy. 😍',
-            favorite: true,
+            id: '2',
+            desc: 'Reception agréable et consultation professionnelle magnifique. Merci à l\'équipe pour leurs efforts.',
           },
           {
             imgUrl: require('@/assets/images/avatars/1-small.png'),
             title: 'Norman Gross',
-            id: 'tiana59 ',
-            tags: '#sketch #uiux #figma',
-            desc: 'Candy jelly beans powder brownie biscuit. Jelly marzipan oat cake cake.',
-            favorite: false,
-          },
-        ],
-        suggestions: [
-          {
-            avatar: require('@/assets/images/portrait/small/avatar-s-9.jpg'),
-            name: 'Peter Reed',
-            mutualFriend: '6 Mutual Friends',
+            id: '3',
+            desc: 'Un médecin très compétent , je le recommande vivement , bonne continuation !',
           },
           {
-            avatar: require('@/assets/images/portrait/small/avatar-s-6.jpg'),
-            name: 'Harriett Adkins',
-            mutualFriend: '3 Mutual Friends',
-          },
-          {
-            avatar: require('@/assets/images/portrait/small/avatar-s-7.jpg'),
-            name: 'Juan Weaver',
-            mutualFriend: '1 Mutual Friends',
-          },
-          {
-            avatar: require('@/assets/images/portrait/small/avatar-s-8.jpg'),
-            name: 'Claudia Chandler',
-            mutualFriend: '16 Mutual Friends',
-          },
-          {
-            avatar: require('@/assets/images/portrait/small/avatar-s-1.jpg'),
-            name: 'Earl Briggs',
-            mutualFriend: '4 Mutual Friends',
-          },
-          {
-            avatar: require('@/assets/images/portrait/small/avatar-s-10.jpg'),
-            name: 'Jonathan Lyons',
-            mutualFriend: '25 Mutual Friends',
-          },
-        ],
-        polls: [
-          {
-            name: 'RDJ',
-            result: '82%',
-            votedUser: [
-              { img: require('@/assets/images/portrait/small/avatar-s-12.jpg'), username: 'Tonia Seabold' },
-              { img: require('@/assets/images/portrait/small/avatar-s-5.jpg'), username: 'Carissa Dolle' },
-              { img: require('@/assets/images/portrait/small/avatar-s-9.jpg'), username: 'Kelle Herrick' },
-              { img: require('@/assets/images/portrait/small/avatar-s-10.jpg'), username: 'Len Bregantini' },
-              { img: require('@/assets/images/portrait/small/avatar-s-11.jpg'), username: 'John Doe' },
-            ],
-          },
-          {
-            name: 'Chris Hemswort',
-            result: '67%',
-            votedUser: [
-              { img: require('@/assets/images/portrait/small/avatar-s-9.jpg'), username: 'Tonia Seabold' },
-              { img: require('@/assets/images/portrait/small/avatar-s-1.jpg'), username: 'Carissa Dolle' },
-              { img: require('@/assets/images/portrait/small/avatar-s-8.jpg'), username: 'Jonathan Lyons' },
-            ],
+            imgUrl: require('@/assets/images/avatars/8-small.png'),
+            title: 'Norman Gross',
+            id: '3',
+            desc: 'Un médecin très compétent , je le recommande vivement , bonne continuation !',
           },
         ],
       },
