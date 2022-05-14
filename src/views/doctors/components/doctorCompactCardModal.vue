@@ -3,21 +3,18 @@
     <b-col
       cols="12"
     >
-      <b-card>
+      <b-card class="bg-light-primary">
         <div class="d-flex justify-content-start">
           <b-avatar
             :src="doctorsData.avatar"
             :text="avatarText(doctorsData.fullName)"
             size="104px"
             rounded
-            :to="{name:'doctorsData-detail', params: {id : doctorsData.id}}"
           />
           <div class="d-flex flex-column ml-1">
             <div class="mb-1">
               <h4
                 class="mb-0 text-primary"
-                role="button"
-                @click="$router.push({name:'doctorsData-detail', params: {id : doctorsData.id}})"
               >
                 {{ doctorsData.fullName }}
               </h4>
@@ -48,7 +45,7 @@
                           variant="warning"
                           inline
                           no-border
-                          class="mt-0"
+                          class="bg-light"
                       />
                     </div>
                   </td>

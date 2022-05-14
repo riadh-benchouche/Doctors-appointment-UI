@@ -76,7 +76,7 @@
                     class="ml-auto"
                 >
                   <feather-icon
-                      icon="EditIcon"
+                      icon="CalendarIcon"
                       class="d-block d-md-none"
                   />
                   <span class="font-weight-bold d-none d-md-block">Prendre rendez-vous</span>
@@ -89,15 +89,19 @@
         </b-navbar>
       </div>
       <b-modal
+          no-close-on-backdrop
+          ok-variant="primary"
+          header-text-variant="primary"
           id="modal-1"
           title="Take an appointment with"
           ok-only
           ok-title="Confirm"
+          class="text-primary"
       >
         <doctor-compact-card-modal :doctors-data="data"></doctor-compact-card-modal>
         <b-card-text>
           <b-form-group>
-            <h5>Date & TIme</h5>
+            <h5 class="text-primary">Date & TIme</h5>
             <flat-pickr
                 v-model="dateNtim"
                 class="form-control"
