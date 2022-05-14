@@ -42,10 +42,13 @@
                   </th>
                   <td class="float-right">
                     <div>
-                      <star-rating
-                        :star-size="20"
-                        :show-rating="false"
-                        :rounded-corners="true"
+                      <b-form-rating
+                          readonly
+                          :value="doctorsData.rating"
+                          variant="warning"
+                          inline
+                          no-border
+                          class="mt-0"
                       />
                     </div>
                   </td>
@@ -61,10 +64,9 @@
 
 <script>
 import {
-  BCard, BAvatar, BRow, BCol,
+  BCard, BAvatar, BRow, BCol, BFormRating,
 } from 'bootstrap-vue'
 import { avatarText } from '@core/utils/filter'
-import StarRating from 'vue-star-rating'
 
 export default {
   components: {
@@ -72,7 +74,7 @@ export default {
     BRow,
     BCol,
     BAvatar,
-    StarRating,
+    BFormRating,
   },
   props: {
     doctorsData: {

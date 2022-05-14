@@ -156,6 +156,7 @@ export default {
         specialite: 'Chirurgie dentaire',
         country: 'Alger',
         contact: '(472) 607-9137',
+        rating: '4,5',
         email: 'hredmore1@imgur.com',
         // eslint-disable-next-line global-require
         avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),

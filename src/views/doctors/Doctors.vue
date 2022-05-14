@@ -87,6 +87,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'Albania',
           contact: '(472) 607-9137',
+          rating: '2',
           email: 'hredmore1@imgur.com',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -98,6 +99,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'Russia',
           contact: '(321) 264-4599',
+          rating: '3',
           email: 'msicely2@who.int',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -109,6 +111,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'China',
           contact: '(923) 690-6806',
+          rating: '5',
           email: 'crisby3@wordpress.com',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -120,6 +123,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'Pakistan',
           contact: '(669) 914-1078',
+          rating: '4',
           email: 'mhurran4@yahoo.co.jp',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -131,6 +135,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'China',
           contact: '(923) 690-6806',
+          rating: '1',
           email: 'crisby3@wordpress.com',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
@@ -142,6 +147,7 @@ export default {
           specialite: 'Chirurgie dentaire',
           country: 'Pakistan',
           contact: '(669) 914-1078',
+          rating: '5',
           email: 'mhurran4@yahoo.co.jp',
           // eslint-disable-next-line global-require
           avatar: require('@/assets/images/profile/user-uploads/user-01.jpg'),
