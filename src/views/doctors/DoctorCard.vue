@@ -1,6 +1,6 @@
 <template>
   <swiper
-      class="swiper-multiple"
+      class="swiper-responsive-breakpoints"
       :options="swiperOptions"
       :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
   >
@@ -18,7 +18,7 @@
           <div class="profile-image p-0">
             <b-avatar
                 size="114"
-                variant="light"
+                variant="primary"
                 :src="require('@/assets/images/profile/user-uploads/user-01.jpg')"
                 :to="{name:'doctor-detail', params :{id:doctor.id}}"
             />
@@ -52,10 +52,13 @@
             <h1 class="mb-0">
               4.3
             </h1>
-            <star-rating
-                :star-size="20"
-                :show-rating="false"
-                :rounded-corners="true"
+            <b-form-rating
+                readonly
+                :value="doctor.rating"
+                variant="warning"
+                inline
+                no-border
+                class="mt-0"
             />
           </div>
           <div class="progress-wrapper w-50">
@@ -93,9 +96,8 @@
 
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import StarRating from 'vue-star-rating'
 import {
-  BCard, BAvatar, BBadge, BProgress, BRow, BCol,
+  BCard, BAvatar, BBadge, BProgress, BRow, BCol, BFormRating,
 } from 'bootstrap-vue'
 import 'swiper/css/swiper.css'
 
@@ -105,9 +107,9 @@ export default {
     BBadge,
     BAvatar,
     BProgress,
+    BFormRating,
     Swiper,
     SwiperSlide,
-    StarRating,
     BRow,
     BCol,
   },
@@ -121,10 +123,28 @@ export default {
     return {
       swiperOptions: {
         slidesPerView: 4,
-        spaceBetween: 20,
+        spaceBetween: 50,
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
         },
       },
       bars: [
