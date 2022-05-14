@@ -47,9 +47,9 @@
                   <td class="float-right">
                     <div>
                       <star-rating
-                        star-size="20"
+                        :star-size="20"
                         :show-rating="false"
-                        rounded-corners="true"
+                        :rounded-corners="true"
                       />
                     </div>
                   </td>
