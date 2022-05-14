@@ -28,18 +28,69 @@
       </b-row>
     </b-container>
     <b-row class="pb-md-1 px-md-3">
-      <doctor-card  :doctors-data="data"></doctor-card>
+      <doctor-card :doctors-data="data"></doctor-card>
     </b-row>
     <b-row class="d-flex justify-content-between pb-md-1 px-md-3">
       <h1 class="text-primary">Recommended</h1>
-      <b-button
-          v-ripple.400="'rgba(255, 255, 255, 0.15)'"
-          variant="primary"
-          class="btn-icon"
-      >
-        <feather-icon icon="FilterIcon" size="20"/>
-      </b-button>
+      <section>
+        <b-button
+            v-if="!ShallShowFilter"
+            v-ripple.400="'rgba(255, 255, 255, 0.15)'"
+            variant="primary"
+            class="btn-icon"
+            @click="ShallShowFilter = true"
+        >
+          <feather-icon icon="FilterIcon" size="20"/>
+        </b-button>
+        <b-button
+            v-if="ShallShowFilter"
+            v-ripple.400="'rgba(255, 255, 255, 0.15)'"
+            variant="primary"
+            class="btn-icon"
+            @click="ShallShowFilter = false"
+        >
+          <feather-icon v-if="ShallShowFilter" icon="XIcon" size="20"/>
+        </b-button>
+      </section>
     </b-row>
+    <b-container v-if="ShallShowFilter">
+      <b-row class="mb-2 d-flex justify-content-between">
+        <b-col
+            md="4"
+        >
+          <div class="demo-vertical-spacing ">
+            <b-input-group class="input-group-merge">
+              <b-input-group-prepend is-text>
+                <feather-icon icon="SearchIcon"/>
+              </b-input-group-prepend>
+              <b-form-input placeholder="Search..."/>
+            </b-input-group>
+          </div>
+        </b-col>
+        <b-col
+            md="4"
+        >
+          <v-select
+              :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
+              :options="specialite"
+              :reduce="val => val.id"
+              label="label"
+              placeholder="Specialite"
+          />
+        </b-col>
+        <b-col
+            md="4"
+        >
+          <v-select
+              :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
+              :options="location"
+              :reduce="val => val.id"
+              label="label"
+              placeholder="Location"
+          />
+        </b-col>
+      </b-row>
+    </b-container>
     <b-row class="px-md-3">
       <doctor-compact-card :doctors-data="data"></doctor-compact-card>
     </b-row>
@@ -79,6 +130,7 @@ export default {
   },
   data() {
     return {
+      ShallShowFilter: false,
       data: [
         {
           id: 1,
@@ -165,6 +217,20 @@ export default {
         {
           id: 3,
           label: 'Russia',
+        },
+      ],
+      specialite: [
+        {
+          id: 1,
+          label: 'Cardiologue',
+        },
+        {
+          id: 2,
+          label: 'Chirurgien dentiste',
+        },
+        {
+          id: 3,
+          label: 'Ophtalmologue',
         },
       ],
     }
