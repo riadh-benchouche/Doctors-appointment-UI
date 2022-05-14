@@ -20,10 +20,11 @@
                 size="114"
                 variant="light"
                 :src="require('@/assets/images/profile/user-uploads/user-01.jpg')"
+                :to="{name:'doctor-detail', params :{id:doctor.id}}"
             />
           </div>
         </div>
-        <h3>{{doctor.fullName}}</h3>
+        <h3 role="button" @click="$router.push({name:'doctor-detail', params :{id:doctor.id}})">{{doctor.fullName}}</h3>
         <h6 class="text-muted">
           Spécialité: {{doctor.specialite}}
         </h6>
