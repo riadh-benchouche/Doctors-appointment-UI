@@ -28,7 +28,7 @@
       </b-row>
     </b-container>
     <b-row class="pb-md-1 px-md-3">
-      <doctor-card :doctors-data="data"></doctor-card>
+      <doctor-card  :doctors-data="data"></doctor-card>
     </b-row>
     <b-row class="d-flex justify-content-between pb-md-1 px-md-3">
       <h1 class="text-primary">Recommended</h1>
@@ -40,7 +40,7 @@
         <feather-icon icon="FilterIcon" size="20"/>
       </b-button>
     </b-row>
-    <b-row>
+    <b-row class="px-md-3">
       <doctor-compact-card :doctors-data="data"></doctor-compact-card>
     </b-row>
   </section>
